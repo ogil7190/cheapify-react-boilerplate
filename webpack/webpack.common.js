@@ -10,7 +10,9 @@ const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 
 const shortHands = {
   components: path.resolve( __dirname, '../src/js/components' ),
+  router: path.resolve( __dirname, '../src/js/router' ),
   hoc: path.resolve( __dirname, '../src/js/hoc' ),
+  views: path.resolve( __dirname, '../src/js/views' ),
   utils: path.resolve( __dirname, '../src/js/utils' ),
   constants: path.resolve( __dirname, '../src/js/constants' ),
   scss: path.resolve( __dirname, '../src/scss' )

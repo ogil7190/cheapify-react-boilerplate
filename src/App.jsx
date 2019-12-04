@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
-import HelloWorld from 'components/hello-world/index.js';
-import { Link } from 'react-router-dom';
-
-class App extends Component {
+import { withBrowserRouter } from 'hoc/generic/withBrowserRouter';
+import { RouteManager } from 'router/routeManager';
+class _App extends Component {
   constructor( props ) {
     super( props );
     this.state = {};
@@ -11,12 +10,9 @@ class App extends Component {
   
   render() {
     return(
-    <>
-      <Link to={'/demo'}> Click to Demo</Link>
-      <HelloWorld title="Hello from React webpack" />
-    </>
+      <RouteManager title='Cheapify' />
     );
   }
 }
 
-export default hot( App );
+export const App = () => withBrowserRouter( hot( _App ) );
