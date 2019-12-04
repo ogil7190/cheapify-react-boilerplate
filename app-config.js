@@ -1,3 +1,5 @@
-import { APP_LEVEL_DEBUG } from 'constants/genric';
+import { APP_LEVEL_DEBUG, APP_LEVEL_PRODUCTION } from 'constants/generic';
 
-console.log( 'OGIL', APP_LEVEL_DEBUG );
+/* modify this line to change debug level of application */
+export const APP_LEVEL = APP_LEVEL_DEBUG;
+export const DEBUG = APP_LEVEL === APP_LEVEL_PRODUCTION ? false : true;

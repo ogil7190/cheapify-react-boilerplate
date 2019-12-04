@@ -2,13 +2,16 @@ import React from 'react';
 import {values} from 'lodash';
 import { Routes, TemporaryRoutes } from 'router/routerConfig';
 import { Route, Switch } from 'react-router-dom';
-import UIKit from 'components/ui-kit';
 
 export const routeManager = () => {
     return class RouteManager extends React.Component {
         constructor( props ) {
             super( props );
-            this.routes = [].concat( values( Routes ), values( TemporaryRoutes ) );
+            if( props.debug ) {
+                this.routes = [].concat( values( Routes ), values( TemporaryRoutes ) ); /* include temporary routes while debugging */
+            } else {
+                this.routes = values( Routes );
+            }
         }
 
         render() {

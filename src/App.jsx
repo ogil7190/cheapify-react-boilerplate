@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { withBrowserRouter } from 'hoc/generic/withBrowserRouter';
 import { RouteManager } from 'router/routeManager';
+import { DEBUG } from '../app-config';
 class _App extends Component {
   constructor( props ) {
     super( props );
@@ -10,7 +11,7 @@ class _App extends Component {
   
   render() {
     return(
-      <RouteManager title='Cheapify' />
+      <RouteManager title='Cheapify' debug = {DEBUG} />
     );
   }
 }

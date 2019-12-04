@@ -1,5 +1,4 @@
-import HelloWorld from 'views/hello-world';
-import UIKit from 'components/ui-kit';
+import { UIKit } from 'components/ui-kit';
 
 export const RoutePaths = {
     ROOT: '/',
@@ -13,7 +12,7 @@ export const Routes = {
         path: RoutePaths.ROOT,
         exact: true,
         data: {},
-        component: HelloWorld
+        component: UIKit
     }
 };
 
