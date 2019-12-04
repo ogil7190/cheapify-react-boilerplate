@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "animations/*": [
+                "src/js/animations/*"
+            ],
+            "components/*": [
+                "src/js/components/*"
+            ],
+            "hoc/*": [
+                "src/js/hoc/*"
+            ],
+            "router/*": [
+                "src/js/router/*"
+            ],
+            "services/*": [
+                "src/js/services/*"
+            ],
+            "views/*": [
+                "src/js/views/*"
+            ],
+            "utils/*": [
+                "src/js/utils/*"
+            ],
+            "constants/*": [
+                "src/js/constants/*"
+            ],
+            "jsons/*": [
+                "src/assets/jsons/*"
+            ]
+        },
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react"
+    }
+}
