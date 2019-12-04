@@ -6,12 +6,14 @@ const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const ScriptExtHtmlWebpackPlugin = require( 'script-ext-html-webpack-plugin' );
 const path = require( 'path' );
 const commonPaths = require( './paths' );
+const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 
 const shortHands = {
   components: path.resolve( __dirname, '../src/js/components' ),
   hoc: path.resolve( __dirname, '../src/js/hoc' ),
   utils: path.resolve( __dirname, '../src/js/utils' ),
-  constants: path.resolve( __dirname, '../src/js/constants/' ),
+  constants: path.resolve( __dirname, '../src/js/constants' ),
+  scss: path.resolve( __dirname, '../src/scss' )
 };
 
 module.exports = {
@@ -81,5 +83,8 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin( {
       defaultAttribute: 'async',
     } ),
+    new CopyWebpackPlugin( [
+      { from: commonPaths.assetsPath, to: 'assets' }
+    ] )
   ],
 };

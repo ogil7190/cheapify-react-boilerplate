@@ -20,11 +20,13 @@ module.exports = {
         // Default number of concurrent runs: os.cpus().length - 1
         parallel: true,
 
+
         // Enable file caching
         cache: true,
         sourceMap: true,
       } ),
       new OptimizeCSSAssetsPlugin(),
+
     ],
 
     // Automatically split vendor and commons
@@ -43,6 +45,7 @@ module.exports = {
           chunks: 'async',
           minChunks: 4,
         },
+
       },
     },
 
