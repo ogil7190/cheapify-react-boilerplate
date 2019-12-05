@@ -6,30 +6,35 @@
     white-space: nowrap;
 }
 
+button {
+    outline: none;
+    border: 0;
+}
+
 .view-generic-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
     text-align: center;
-    position: relative;
+    margin: 10px;
+
     &--small{
         @extend %text-overflow-ellipsis;
-        max-width: 150px;
-        padding: 5px 15px;
-       // border-radius: 3px;
+        min-width: 120px;
+        padding: 8px 16px;
     }
 
     &--medium{
         @extend %text-overflow-ellipsis;
-        max-width: 250px;
-        padding: 8px 20px;
-      //  border-radius: 4px;
-
+        min-width: 135px;
+        padding: 10px 20px;
     }
 
     &--large{
         @extend %text-overflow-ellipsis;
-        max-width: 350px;
-        padding: 10px 30px;
-       // border-radius: 5px;
+        min-width: 150px;
+        padding: 15px 30px;
     }
 
     &--disabled{
@@ -43,9 +48,9 @@
     }
 
     &--filled{
-        background: $theme-secondary-color;
         color:$theme-white;
-        border: 2px solid;
+        background: $theme-secondary-color;
+        border: 2px solid $theme-secondary-color;
     }
 
     &__label{
