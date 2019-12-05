@@ -1,18 +1,63 @@
 @import '~scss/app.theme.scss';
 
+%text-overflow-ellipsis{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .view-generic-button{
-    &__container{
-        padding: 10px;
-        justify-content: center;
-        align-items: center;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    &--small{
+        @extend %text-overflow-ellipsis;
+        max-width: 150px;
+        padding: 5px 15px;
+       // border-radius: 3px;
     }
 
-    &--small{
-        width : 100px;
-        height : 25px;
+    &--medium{
+        @extend %text-overflow-ellipsis;
+        max-width: 250px;
+        padding: 8px 20px;
+      //  border-radius: 4px;
+
+    }
+
+    &--large{
+        @extend %text-overflow-ellipsis;
+        max-width: 350px;
+        padding: 10px 30px;
+       // border-radius: 5px;
+    }
+
+    &--disabled{
+        opacity: 0.5;
+        cursor:not-allowed;
     }
 
     &--lined{
         border: 2px solid $theme-secondary-color;
+        color: $theme-secondary-color;
+    }
+
+    &--filled{
+        background: $theme-secondary-color;
+        color:$theme-white;
+        border: 2px solid;
+    }
+
+    &__label{
+        &--small{
+            font-size: 14px;
+        }
+        &--medium{
+            font-size: 16px;
+        }
+        &--large{
+
+            font-size: 18px;
+        }
     }
 }

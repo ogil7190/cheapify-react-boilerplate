@@ -10,10 +10,11 @@ export class UIKit extends React.Component {
     render() {
         return(
             <>
-            {
-                'Button Sample'
-            }
-            <Button label='Dummy Button' bodyType='lined' size='small' />
+                <Button label='Dummy Button hhuhuhuhuhuhh' bodyType='lined' size='small' disabled={true} />
+                <Button label='Dummy Button' bodyType='filled'  disable={true} />
+                <Button label='Dummy Button' bodyType='filled' size='large' disable={true} />
+                <Button label='Dummy Button' bodyType='filled' size='large' disable={true} />
+                <Button label='Dummy Button' bodyType='filled' size='large' loading={true} />
             </>
         );
     }

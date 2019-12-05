@@ -1,0 +1,87 @@
+@import '~scss/app.theme.scss';
+
+%boxes {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    margin: 8px;
+    animation: circular-preloader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+%dark{
+    border-color: $theme-black transparent transparent transparent;
+}
+
+%light{
+    border-color: $theme-white transparent transparent transparent;
+}
+
+.view-circular-preloader {
+    display: inline-block;
+    position: relative;
+
+    div{
+        @extend %boxes;
+    }
+
+    &--small {
+        width: 25px;
+        height: 25px;
+        div {
+            width: 20px;
+            height: 20px;
+            border-width: 2px;
+        }
+    }
+    &--medium {
+        width: 40px;
+        height: 40px;
+        div {
+            width: 30px;
+            height: 30px;
+            border-width: 3px;
+        }
+    }
+    &--large {
+        width: 50px;
+        height: 50px;
+        div {
+            width:  40px;
+            height: 40px;
+            border-width: 4px;
+        }
+    }
+
+    &--light{
+        div{
+            @extend %light;
+        }
+    }
+
+    &--dark{
+        div{
+            @extend %dark;
+        }
+    }
+
+    div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+    div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+    div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+}
+
+@keyframes circular-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
