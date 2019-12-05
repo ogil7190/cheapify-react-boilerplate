@@ -1,0 +1,14 @@
+@import '~scss/app.theme.scss';
+
+.ui-kit{
+    height: 100vh;
+    overflow: scroll;
+    padding: 20px;
+    background: linear-gradient(to Right, $theme-primary-color, $theme-secondary-color);
+
+    &__title{
+        color: $theme-tertiary-color;
+        font-size: 20px;
+        margin: 10px;
+    }
+}

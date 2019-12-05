@@ -1,0 +1,23 @@
+@import '~scss/app.theme.scss';
+
+.view-card{
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 5px;
+    background-color: $theme-white;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    margin: 10px 0 10px 0;
+
+    &--without-padding{
+        .view-card{
+            padding: 0;
+        }
+    }
+
+    &--without-margin{
+        .view-card{
+            margin: 0;
+        }
+    }
+}

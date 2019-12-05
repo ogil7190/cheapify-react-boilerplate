@@ -20,8 +20,6 @@ module.exports = function( api ) {
     'transform-react-remove-prop-types',
     'transform-react-pure-class-to-function',
     '@babel/plugin-transform-runtime',
-    
-    'react-hot-loader/babel',
 
     // Stage 2 https://github.com/babel/babel/tree/master/packages/babel-preset-stage-2
     [ '@babel/plugin-proposal-decorators', { legacy: true } ],

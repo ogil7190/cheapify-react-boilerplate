@@ -21,7 +21,7 @@ export const Button = ( props ) => {
         props.size ? `view-generic-button__label--${props.size}`: null,
     );
     
-    return <button className={buttonClass} onClick={props.onClick}>
+    return <button className={buttonClass} onClick={ props.disabled ? noop : props.onClick }>
         {
             props.loading ?
             <CircularPreloader size={props.size} theme={'filled' === props.bodyType ? 'light' : 'dark' } /> :
@@ -30,7 +30,7 @@ export const Button = ( props ) => {
     </button>;
 };
 
-Button.proptypes = {
+Button.propTypes = {
     size: PropTypes.string,
 };
 
