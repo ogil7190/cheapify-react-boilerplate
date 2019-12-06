@@ -1,0 +1,28 @@
+@import '~scss/app.theme.scss';
+
+.view-generic-input-field {
+    width: 100%;
+    background: rgba(196, 188, 188, 0.5);
+    border-radius: 5px;
+    padding: 20px 15px;
+
+    &--withIcon {
+        
+    }
+
+    &--wrapper {
+        display: flex;
+        flex-direction: column;
+        //flex:1;
+    }
+
+    &--label {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    &--placeholder {
+        color: rgb(201, 194, 194);
+        font-size: 16px;
+    }
+}

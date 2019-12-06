@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from 'views/generic/card';
 import { Button } from 'views/generic/button';
 import { CircularPreloader } from 'views/generic/circularPreloader';
+import { InputField } from 'views/generic/inputField';
 
 export class UIKit extends React.Component {
     constructor( props ) {
@@ -31,6 +32,10 @@ export class UIKit extends React.Component {
                     <CircularPreloader size='small' theme='dark' />
                     <CircularPreloader size='medium' theme='dark' />
                     <CircularPreloader size='large' theme='dark' />
+                </Card>
+
+                <Card>
+                    <InputField type='text' placeholder="Enter your E-mail Id" required = {false} ></InputField>
                 </Card>
             </div>
         );
