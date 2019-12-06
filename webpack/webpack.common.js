@@ -15,6 +15,7 @@ const shortHands = {
   views: path.resolve( __dirname, '../src/js/views' ),
   utils: path.resolve( __dirname, '../src/js/utils' ),
   constants: path.resolve( __dirname, '../src/js/constants' ),
+  assets: path.resolve( __dirname, '../src/assets' ),
   scss: path.resolve( __dirname, '../src/scss' )
 };
 

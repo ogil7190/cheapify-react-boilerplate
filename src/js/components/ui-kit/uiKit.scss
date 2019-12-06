@@ -4,7 +4,7 @@
     height: 100vh;
     overflow: scroll;
     padding: 20px;
-    background: linear-gradient(to Right, $theme-primary-color, $theme-secondary-color);
+    background: linear-gradient( 45deg, $theme-primary-color, $theme-secondary-color);
 
     &__title{
         color: $theme-tertiary-color;

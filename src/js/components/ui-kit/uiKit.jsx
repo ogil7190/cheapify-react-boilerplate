@@ -35,6 +35,7 @@ export class UIKit extends React.Component {
                     <CircularPreloader size='small' theme='dark' />
                     <CircularPreloader size='medium' theme='dark' />
                     <CircularPreloader size='large' theme='dark' />
+                    <CircularPreloader size='large' theme='dark' amount = {50} />
                 </Card>
 
                 <Card>

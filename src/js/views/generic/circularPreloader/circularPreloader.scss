@@ -35,6 +35,12 @@
         }
     }
 
+    &--amount {
+        .spinner{
+            border-top-width: 4px;
+        }
+    }
+
     &--dark {
         .spinner {
             border-top-color: rgba($theme-black, .5);
