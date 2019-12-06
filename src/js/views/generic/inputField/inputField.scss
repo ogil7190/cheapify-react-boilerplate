@@ -2,27 +2,33 @@
 
 .view-generic-input-field {
     width: 100%;
-    background: rgba(196, 188, 188, 0.5);
-    border-radius: 5px;
-    padding: 20px 15px;
-
-    &--withIcon {
-        
+    
+    &__input{
+        width: 100%;
+        font-size: 16px;
+        &__icon {
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
     }
 
-    &--wrapper {
+    &__icon--left{
+        flex-direction: row-reverse;
+    }
+
+    &__container {
         display: flex;
-        flex-direction: column;
-        //flex:1;
+        padding: 8px;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: $theme-black;
     }
 
-    &--label {
+    &__label {
         font-size: 18px;
         margin-bottom: 10px;
-    }
-
-    &--placeholder {
-        color: rgb(201, 194, 194);
-        font-size: 16px;
     }
 }

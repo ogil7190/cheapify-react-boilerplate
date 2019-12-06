@@ -3,6 +3,9 @@ import { Card } from 'views/generic/card';
 import { Button } from 'views/generic/button';
 import { CircularPreloader } from 'views/generic/circularPreloader';
 import { InputField } from 'views/generic/inputField';
+import { GoSearch } from 'react-icons/go';
+import { noop } from 'lodash';
+
 
 export class UIKit extends React.Component {
     constructor( props ) {
@@ -35,7 +38,7 @@ export class UIKit extends React.Component {
                 </Card>
 
                 <Card>
-                    <InputField type='text' placeholder="Enter your E-mail Id" required = {false} ></InputField>
+                    <InputField type='text' placeholder="Enter your E-mail Id" label = "Email Id" required = {false} icon={ true } onIconClick = { noop }></InputField>
                 </Card>
             </div>
         );
