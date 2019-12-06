@@ -3,6 +3,8 @@ import { Card } from 'views/generic/card';
 import { Button } from 'views/generic/button';
 import { CircularPreloader } from 'views/generic/circularPreloader';
 
+import { IoIosSearch } from 'react-icons/io';
+
 export class UIKit extends React.Component {
     constructor( props ) {
         super( props );
@@ -16,6 +18,7 @@ export class UIKit extends React.Component {
             <div className={'ui-kit'} >
                 <Card>
                     <div className='ui-kit__title'>Button with variable sizes and action </div>
+                    <IoIosSearch size={20} color={'red'} />
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' bodyType='lined' loading={this.state.buttonLoading} size='small' />
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' disabled = {true} bodyType='filled' loading={this.state.buttonLoading} size='small' />
 
