@@ -12,7 +12,7 @@ export const InputField = ( props ) => {
     const mainClasses = classnames( 'view-generic-input-field' );
     const inputContainerClasses = classnames( 'view-generic-input-field__container',
         'left' === props.iconPosition ?  'view-generic-input-field__icon--left' : null );
-    const inputClasses = classnames( 'view-generic-input-field__input' );
+    const inputClasses = classnames( 'view-generic-input-field__input', true === props.disabled ? 'view-generic-input-field__input--disabled':null );
     const iconClasses = classnames( props.icon ? 'view-generic-input-field__input__icon' :null );
     const labelClasses = classnames( props.label ? 'view-generic-input-field__label' :null );
 
@@ -29,6 +29,7 @@ export const InputField = ( props ) => {
                     id = { props.id }
                     type = { props.type }
                     required = {props.required}
+                    disabled = { props.disabled }
                 />
                 {
                     props.icon && <GoSearch className={ iconClasses } onClick = { props.disabled ? noop : props.onIconClick }/>
@@ -41,13 +42,15 @@ export const InputField = ( props ) => {
 InputField.proptypes = {
     type: PropTypes.string,
     iconPosition: PropTypes.string,
-    required: PropTypes.bool
+    required: PropTypes.bool,
+    disabled: PropTypes.bool
 };
 
 InputField.defaultProps = {
     required: false,
     type: 'text',
     onClick: noop,
-    iconPosition: 'right'
+    iconPosition: 'right',
+    disabled: false
 };
 

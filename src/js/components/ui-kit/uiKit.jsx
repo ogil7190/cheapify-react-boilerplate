@@ -3,7 +3,7 @@ import { Card } from 'views/generic/card';
 import { Button } from 'views/generic/button';
 import { CircularPreloader } from 'views/generic/circularPreloader';
 import { InputField } from 'views/generic/inputField';
-import { GoSearch } from 'react-icons/go';
+import { Text } from 'views/generic/text';
 import { noop } from 'lodash';
 
 
@@ -28,6 +28,11 @@ export class UIKit extends React.Component {
 
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' bodyType='lined' loading={this.state.buttonLoading} size='large' />
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' disabled = {false} bodyType='filled' loading={this.state.buttonLoading} size='large' />
+
+                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {true} iconPosition = 'left' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='small' />
+                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {true} iconPosition = 'right' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='medium' />
+                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {true} iconPosition = 'left' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='large' />
+                
                 </Card>
                 
                 <Card>
@@ -39,7 +44,11 @@ export class UIKit extends React.Component {
                 </Card>
 
                 <Card>
-                    <InputField type='text' placeholder="Enter your E-mail Id" label = "Email Id" required = {false} icon={ true } onIconClick = { noop }></InputField>
+                    <InputField type='text' placeholder="Enter your E-mail Id" label = "Email Id" required = {false} disabled = { false } icon={ true } onIconClick = { noop }></InputField>
+                </Card>
+
+                <Card>
+                    <Text label = 'Demo text' />
                 </Card>
             </div>
         );

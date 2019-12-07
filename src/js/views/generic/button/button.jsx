@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { noop } from 'lodash';
 import { CircularPreloader } from 'views/generic/circularPreloader';
+import { FaFacebook } from 'react-icons/fa';
 
 /*
     * @Auth OGIL > Kalra
@@ -15,19 +16,28 @@ export const Button = ( props ) => {
         props.bodyType ? `view-generic-button--${props.bodyType}`: null,
         props.size ? `view-generic-button--${props.size}`: null,
         props.disabled ? 'view-generic-button--disabled':null,
+        'left' === props.iconPosition ?  'view-generic-button__icon--left' : null
     );
 
     const labelClasses = classnames( 'view-generic-button__label',
         props.size ? `view-generic-button__label--${props.size}`: null,
     );
+    const iconClasses = classnames( props.icon ? 'view-generic-button__icon' :null,
+        props.size ? `view-generic-button__icon--${props.size}`: null,
+    );
     
-    return <button className={buttonClass} onClick={ props.disabled ? noop : props.onClick }>
+    return (
+        <button className={buttonClass} onClick={ props.disabled ? noop : props.onClick }>
         {
             props.loading ?
             <CircularPreloader size={props.size} theme={'filled' === props.bodyType ? 'light' : 'dark' } /> :
             <span className={labelClasses}>{props.label}</span>
         }
-    </button>;
+        {
+            props.icon && <FaFacebook className={ iconClasses } onClick = { props.disabled ? noop : props.onIconClick }/>
+        }
+         </button>
+    );
 };
 
 Button.propTypes = {
@@ -40,5 +50,6 @@ Button.defaultProps = {
     disabled: false,
     onClick: noop,
     loading: false,
-    icon: ''
+    icon: '',
+    iconPosition: 'right',
 };
