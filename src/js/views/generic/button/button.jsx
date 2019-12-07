@@ -65,7 +65,7 @@ Button.defaultProps = {
     onClick: noop,
     loading: false,
     icon: null,
-    iconPosition: 'left',
+    iconPosition: 'right',
     onIconClick: noop,
     changeOnHover: false
 };

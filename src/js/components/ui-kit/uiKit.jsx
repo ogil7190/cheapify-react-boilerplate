@@ -28,11 +28,11 @@ export class UIKit extends React.Component {
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' disabled = {false} bodyType='filled' loading={this.state.buttonLoading} size='medium' />
 
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' bodyType='lined' loading={this.state.buttonLoading} size='large' />
-                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' disabled = {false} bodyType='filled' loading={this.state.buttonLoading} size='large' />
+                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' changeOnHover={true} disabled = {false} bodyType='filled' loading={this.state.buttonLoading} size='large' />
 
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {FaFacebook} iconPosition = 'left' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='small' />
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {FaFacebook} iconPosition = 'right' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='medium' />
-                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {FaFacebook} iconPosition = 'left' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='large' />
+                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='JeevanSathi Dhundo' changeOnHover={true} icon = {GoSearch} disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='large' />
                 </Card>
                 
                 <Card>
