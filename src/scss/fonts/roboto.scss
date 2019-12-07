@@ -9,26 +9,26 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 300;
-    src: url('#{$base-assets}/fonts/Roboto/Roboto-Regular.ttf');
+    src: url('#{$base-assets}/fonts/Roboto/Roboto-Light.ttf');
 }
 
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    src: url('#{$base-assets}/fonts/Roboto/Roboto-Medium.ttf');
+    src: url('#{$base-assets}/fonts/Roboto/Roboto-Regular.ttf');
 }
 
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    src: url('#{$base-assets}/fonts/Roboto/Roboto-Bold.ttf');
+    src: url('#{$base-assets}/fonts/Roboto/Roboto-Medium.ttf');
 }
 
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 900;
-    src: url('#{$base-assets}/fonts/Roboto/Roboto-Black.ttf');
+    src: url('#{$base-assets}/fonts/Roboto/Roboto-Bold.ttf');
 }

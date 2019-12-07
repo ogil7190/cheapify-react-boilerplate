@@ -8,28 +8,28 @@ $base-assets: '~assets';
 	-moz-osx-font-smoothing: grayscale;
 }
 
-%font-primary-regular {
+%font-primary-light {
 	font-family: "Roboto", sans-serif;
-	font-weight: 400;
+	font-weight: 300;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-%font-primary-medium {
+%font-primary-regular {
 	font-family: "Roboto", sans-serif;
 	font-weight: 500;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-%font-primary-bold {
+%font-primary-medium {
 	font-family: "Roboto", sans-serif !important;
 	font-weight: 700 !important;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-%font-primary-ultra-bold {
+%font-primary-bold {
 	font-family: "Roboto", sans-serif;
 	font-weight: 900;
 	-webkit-font-smoothing: antialiased;

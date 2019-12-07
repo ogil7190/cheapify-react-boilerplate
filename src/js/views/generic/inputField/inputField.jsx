@@ -2,19 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { noop } from 'lodash';
-import { GoSearch } from 'react-icons/go';
 
 /**
- *@Auth Ogil7190 && Aman Kalra
+ * @Auth Aman Kalra > OGIL
  * @desc An input field generic component which can be used in various views.
+ * can be disabled, can have a label
+ * exposes a custom render function for icon or can pass icon component directly as icon prop but priority is given to render
  */
 export const InputField = ( props ) => {
-    const mainClasses = classnames( 'view-generic-input-field' );
+    const mainClasses = classnames( 'view-generic-input-field',
+        props.withoutMargin && 'view-generic-input-field--without-margin'
+    );
     const inputContainerClasses = classnames( 'view-generic-input-field__container',
-        'left' === props.iconPosition ?  'view-generic-input-field__icon--left' : null );
-    const inputClasses = classnames( 'view-generic-input-field__input', true === props.disabled ? 'view-generic-input-field__input--disabled':null );
-    const iconClasses = classnames( props.icon ? 'view-generic-input-field__input__icon' :null );
-    const labelClasses = classnames( props.label ? 'view-generic-input-field__label' :null );
+        'left' === props.iconPosition &&  'view-generic-input-field__icon--left' );
+    const inputClasses = classnames( 'view-generic-input-field__input', true === props.disabled && 'view-generic-input-field__input--disabled' );
+    const iconClasses = classnames( props.icon && 'view-generic-input-field__input__icon' );
+    const labelClasses = classnames( props.label && 'view-generic-input-field__label' );
 
     return (
         <div className = { mainClasses }>
@@ -28,29 +31,37 @@ export const InputField = ( props ) => {
                     className = { inputClasses }
                     id = { props.id }
                     type = { props.type }
-                    required = {props.required}
                     disabled = { props.disabled }
+                    onChange = { props.onChange }
                 />
                 {
-                    props.icon && <GoSearch className={ iconClasses } onClick = { props.disabled ? noop : props.onIconClick }/>
+                    props.renderIcon && props.renderIcon() /* render icon as you want */
+                }
+                {
+                    !props.renderIcon && props.icon && <props.icon className={ iconClasses } onClick = { props.disabled ? noop : props.onIconClick }/>
                 }
             </div>
         </div>
     );
 };
 
-InputField.proptypes = {
-    type: PropTypes.string,
-    iconPosition: PropTypes.string,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool
+InputField.defaultProps = {
+    type: 'text',
+    iconPosition: 'right',
+    onIconClick: noop,
+    onChange: noop,
+    disabled: false,
+    withoutMargin: false,
+    renderIcon: null /* function but dont keep as noop */
 };
 
-InputField.defaultProps = {
-    required: false,
-    type: 'text',
-    onClick: noop,
-    iconPosition: 'right',
-    disabled: false
+InputField.proptypes = {
+    type: PropTypes.string,
+    onChange: PropTypes.func,
+    onIconClick: PropTypes.func,
+    iconPosition: PropTypes.string,
+    disabled: PropTypes.bool,
+    withoutMargin: PropTypes.bool,
+    renderIcon: PropTypes.func
 };
 

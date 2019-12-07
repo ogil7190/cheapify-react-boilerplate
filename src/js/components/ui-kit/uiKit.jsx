@@ -4,8 +4,9 @@ import { Button } from 'views/generic/button';
 import { CircularPreloader } from 'views/generic/circularPreloader';
 import { InputField } from 'views/generic/inputField';
 import { Text } from 'views/generic/text';
-import { noop } from 'lodash';
-
+import { FaFacebook } from 'react-icons/fa';
+import { FaAddressCard } from 'react-icons/fa';
+import { GoSearch } from 'react-icons/go';
 
 export class UIKit extends React.Component {
     constructor( props ) {
@@ -29,10 +30,9 @@ export class UIKit extends React.Component {
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' bodyType='lined' loading={this.state.buttonLoading} size='large' />
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' disabled = {false} bodyType='filled' loading={this.state.buttonLoading} size='large' />
 
-                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {true} iconPosition = 'left' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='small' />
-                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {true} iconPosition = 'right' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='medium' />
-                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {true} iconPosition = 'left' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='large' />
-                
+                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {FaFacebook} iconPosition = 'left' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='small' />
+                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {FaFacebook} iconPosition = 'right' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='medium' />
+                    <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Continue with Facebook' icon = {FaFacebook} iconPosition = 'left' disabled = {false} bodyType='lined' loading={this.state.buttonLoading} size='large' />
                 </Card>
                 
                 <Card>
@@ -44,7 +44,9 @@ export class UIKit extends React.Component {
                 </Card>
 
                 <Card>
-                    <InputField type='text' placeholder="Enter your E-mail Id" label = "Email Id" required = {false} disabled = { false } icon={ true } onIconClick = { noop }></InputField>
+                    <InputField type='text' placeholder="Enter your E-mail Id" label = "Email Id" disabled = { false } icon={ GoSearch }></InputField>
+                    <InputField type='number' placeholder="Enter your Phone Number" label="Phone Number"></InputField>
+                    <InputField type='text' placeholder="Enter your Address" label = "Address" icon={GoSearch} renderIcon = { () => <FaAddressCard size={50} color='red' /> }></InputField>
                 </Card>
 
                 <Card>

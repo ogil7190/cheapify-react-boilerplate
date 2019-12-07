@@ -3,24 +3,6 @@
 .view-text {
     color: $theme-black;
     line-height: normal;
-
-    @extend %font-primary-regular;
-
-	&--medium {
-		@extend %font-primary-medium;
-    }
-    
-    &--thin {
-        @extend %font-primary-thin;
-    }
-
-	&--bold {
-		@extend %font-primary-bold;
-    }
-    
-    &--ultra-bold {
-		@extend %font-primary-ultra-bold;
-    }
     
     &--large{
         font-size: 28px;

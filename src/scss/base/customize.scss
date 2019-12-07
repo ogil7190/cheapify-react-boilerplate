@@ -1,5 +1,5 @@
 @import '../fonts/index.scss';
 
 body {
-    @extend %font-primary-regular; // override font family at global level
+    @extend %font-primary-light; // override font family at global level
 }
