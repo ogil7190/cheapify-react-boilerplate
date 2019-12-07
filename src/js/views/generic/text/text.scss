@@ -1,0 +1,44 @@
+@import '~scss/app.theme.scss';
+
+.view-text {
+    color: $theme-black;
+    line-height: normal;
+
+    @extend %font-primary-regular;
+
+	&--medium {
+		@extend %font-primary-medium;
+    }
+    
+    &--thin {
+        @extend %font-primary-thin;
+    }
+
+	&--bold {
+		@extend %font-primary-bold;
+    }
+    
+    &--ultra-bold {
+		@extend %font-primary-ultra-bold;
+    }
+    
+    &--large{
+        font-size: 28px;
+    }
+
+	&--extra-large {
+		font-size: 34px;
+	}
+
+	&--underline {
+		text-decoration: underline;
+	}
+
+	&--center {
+		text-align: center;
+    }
+
+    &--blue {
+        color: blue;
+    }
+}

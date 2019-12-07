@@ -48,7 +48,7 @@ export class UIKit extends React.Component {
                 </Card>
 
                 <Card>
-                    <Text label = 'Demo text' />
+                    <Text label = 'Demo text' color='blue' large= {true} centerAligned = { true } />
                 </Card>
             </div>
         );
