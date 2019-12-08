@@ -53,7 +53,7 @@ button {
     }
 
     &__icon {
-        // icon-size is 2px more than its respective font-size in each case
+        // icon-size is 4px more than its respective font-size in each case
         &--small {
             width: 18px;
             height: 18px;
@@ -94,9 +94,9 @@ button {
     }
 
     &__change-lined-on-hover:hover{
-        color:$theme-white;
-        background: $theme-secondary-color;
         border: 2px solid $theme-secondary-color;
+        background: $theme-secondary-color;
+        color:$theme-white;
     }
 
     &__label{

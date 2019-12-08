@@ -13,7 +13,6 @@ import { noop } from 'lodash';
  * 1: tagName (you can also send the tag name directly through props. )
  */
 
-/* Really sorry to remove your hard worked props but I am guessing in long term we dont need this #OGIL  PS: Remove this if message is read */
 export const Text = ( props ) => {
 
     const mainClasses = classnames( 'view-text', props.className );

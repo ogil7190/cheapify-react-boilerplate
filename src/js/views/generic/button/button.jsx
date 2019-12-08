@@ -12,7 +12,7 @@ import { CircularPreloader } from 'views/generic/circularPreloader';
 */
 export const Button = ( props ) => {
     
-    /* If there is no second classe in ternary operator ( ? : ) then use AND operator */
+    /* If there is no second class in ternary operator ( ? : ) then use AND operator */
     const buttonClasses = classnames( 'view-generic-button', props.className,
         props.bodyType && `view-generic-button--${props.bodyType}`,
         props.size && `view-generic-button--${props.size}`,
