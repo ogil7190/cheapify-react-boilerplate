@@ -7,18 +7,22 @@ import { Text } from 'views/generic/text';
 import { FaFacebook } from 'react-icons/fa';
 import { FaAddressCard } from 'react-icons/fa';
 import { GoSearch } from 'react-icons/go';
-
-export class UIKit extends React.Component {
+import { dataFetcherHoc } from 'hoc/generic/dataFetcher';
+import { NetworkRoutes } from 'router/networkRoutes';
+class _UIKit extends React.Component {
     constructor( props ) {
         super( props );
         this.state = {
-            buttonLoading: false
+            buttonLoading: false,
         };
     }
 
     render() {
-        return(
-            <div className={'ui-kit'} >
+        return( this.props.loading ?
+            <div className={'ui-kit ui-kit--loading'}>
+                <CircularPreloader size='large' theme='dark' amount = {50} />
+            </div>
+            : <div className={'ui-kit'} >
                 <Card>
                     <div className='ui-kit__title'>Button with variable sizes and action </div>
                     <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' bodyType='lined' loading={this.state.buttonLoading} size='small' />
@@ -56,3 +60,6 @@ export class UIKit extends React.Component {
         );
     }
 }
+
+export const UIKit = _UIKit;
+export const UIKitWithDataFetcher = dataFetcherHoc( UIKit, { path: NetworkRoutes.FETCH_SAMPLE } );

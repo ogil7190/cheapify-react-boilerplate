@@ -11,4 +11,10 @@
         font-size: 20px;
         margin: 10px;
     }
+
+    &--loading{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

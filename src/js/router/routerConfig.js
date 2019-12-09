@@ -1,4 +1,4 @@
-import { UIKit } from 'components/ui-kit';
+import { UIKitWithDataFetcher, UIKit } from 'components/ui-kit';
 
 export const RoutePaths = {
     ROOT: '/',
@@ -12,7 +12,7 @@ export const Routes = {
         path: RoutePaths.ROOT,
         exact: true,
         data: {},
-        component: UIKit
+        component: UIKitWithDataFetcher
     }
 };
 

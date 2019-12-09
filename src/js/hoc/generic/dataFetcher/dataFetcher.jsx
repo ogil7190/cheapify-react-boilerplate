@@ -1,7 +1,7 @@
 import React from 'react';
-import propTypes from 'prop-types';
-import { Http } from './services';
-import { REQUEST_GET, REQUEST_POST } from 'constants/generic';
+import { HTTP } from 'services/Http';
+import { REQUEST_POST } from 'constants/generic';
+import { APP_HOST } from 'root/app-config.js';
 
 /*
     * @Author Aman Kalra > OGIL
@@ -9,15 +9,52 @@ import { REQUEST_GET, REQUEST_POST } from 'constants/generic';
     * Must be used with top level component only (if not exception)
 */
 
-export const dataFetcherHoc = ( Component, props ) => {
+export const dataFetcherHoc = ( Component, { path, params = {}, method = REQUEST_POST } ) => {
     class DataFetcherHoc extends React.Component {
+        constructor( props ) {
+            super( props );
+            this.state = {
+                loading: false
+            };
+        }
+
         fetchData() {
+            this.setState( { loading: true}, () => {
+                const config =  {
+                    host: APP_HOST,
+                    path,
+                    params,
+                    handlers: {
+                        onSuccess: this.onSuccess.bind( this ),
+                        onFailure: this.onFailure.bind( this ),
+                    }
+                };
+                
+                if( method === REQUEST_POST ) {
+                    return HTTP.post( config );
+                } else {
+                    return HTTP.get( config );
+                }
+            } );
+        }
+
+        onSuccess( response ) {
+            this.setState( { componentData: response, error: false, loading: false} );
+        }
+
+        onFailure( response ) {
+            this.setState( { componentData: response, error: true, loading: false } );
+        }
+
+        componentDidMount() {
             
+            /* start fetching data as soon as component mounts */
+            this.fetchData();
         }
 
         render() {
             return (
-                <Component fetchData = { this.fetchData } { ...this.props } />
+                <Component { ... this.state} { ...this.props } fetchData = { this.fetchData } />
             );
         }
     }

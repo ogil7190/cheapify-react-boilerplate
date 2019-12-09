@@ -1,14 +1,16 @@
 import axios from 'axios';
-import { shortID } from 'utils';
+import { shortID } from 'utils/common';
 
 const getConfig = ( method, params, host, path, headers, cancelToken ) => {
+    const _host = host || 'http:localhost:9000';
+    const _path = path || '/';
+    const url = _host + _path;
     const _default = {
         requestId: shortID(),
         cancelToken,
-        host: host || 'http://localhost',
-        path: path || '/',
+        url,
         params: params || {},
-        method: method || 'POST',
+        method: method || 'post',
         timeout: 3 * 60 * 1000, /* 3 minute timeout */
 
         /* @todo We need some logic for auth tokens */
@@ -20,12 +22,12 @@ const getConfig = ( method, params, host, path, headers, cancelToken ) => {
     return _default;
 };
 
-const requestBuilder = ( { method, handlers, params, host, url, header, cancelToken } ) => {
-    const config = getConfig( method, params, host, url, header, cancelToken );
+const requestBuilder = ( { method, handlers, params, host, path, header, cancelToken } ) => {
+    const config = getConfig( method, params, host, path, header, cancelToken );
     axios( config ).then( ( response ) => {
         handlers.onSuccess && handlers.onSuccess( response );
     } ).catch( ( error ) => {
-        log.debug( 'ERROR HTTP.js', error );
+        console.log( 'ERROR HTTP.js', error );
         handlers.onFailure && handlers.onFailure( error );
     } );
 };

@@ -9,5 +9,5 @@ export const MESSAGE = 'message';
 export const OPEN = 'open';
 export const CLOSE = 'close';
 
-export const REQUEST_POST = 'POST';
-export const REQUEST_GET = 'GET';
+export const REQUEST_POST = 'post';
+export const REQUEST_GET = 'get';

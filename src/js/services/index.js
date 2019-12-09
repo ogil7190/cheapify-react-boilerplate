@@ -1,2 +1,2 @@
-import {} from './Http.js';
+import './Http';
 export * from './services';
