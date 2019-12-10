@@ -7,7 +7,7 @@ import { Text } from 'views/generic/text';
 import { FaFacebook } from 'react-icons/fa';
 import { FaAddressCard } from 'react-icons/fa';
 import { GoSearch } from 'react-icons/go';
-import { dataFetcherHoc } from 'hoc/generic/dataFetcher';
+import { dataFetcherHoc } from 'hoc/generic/dataFetcherHoc';
 import { NetworkRoutes } from 'router/networkRoutes';
 class _UIKit extends React.Component {
     constructor( props ) {
@@ -15,6 +15,10 @@ class _UIKit extends React.Component {
         this.state = {
             buttonLoading: false,
         };
+    }
+
+    componentDidMount() {
+        console.log( 'uiKit.componentDidMount()' );
     }
 
     render() {

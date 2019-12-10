@@ -47,8 +47,9 @@ export const dataFetcherHoc = ( Component, { path, params = {}, method = REQUEST
         }
 
         componentDidMount() {
-            
+
             /* start fetching data as soon as component mounts */
+            console.log( 'dataFetcherHoc.componentDidMount()' );
             this.fetchData();
         }
 

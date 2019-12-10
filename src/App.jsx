@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withBrowserRouter } from 'hoc/generic/withBrowserRouter';
+import { withBrowserRouterHoc } from 'hoc/generic/withBrowserRouterHoc';
 import { RouteManager } from 'router/routeManager';
 import { DEBUG } from '../app-config';
 class _App extends Component {
@@ -18,4 +18,4 @@ class _App extends Component {
   }
 }
 
-export const App = () => withBrowserRouter( _App );
+export const App = () => withBrowserRouterHoc( _App );

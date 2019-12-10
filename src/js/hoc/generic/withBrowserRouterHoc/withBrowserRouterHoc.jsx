@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
     * Wraps the component with BrowserRouter from react-router-dom
     * Must be used with top level component only (if not exception)
 */
-export const withBrowserRouter = ( Component ) => {
+export const withBrowserRouterHoc = ( Component ) => {
     return(
         <BrowserRouter>
             <Component />
