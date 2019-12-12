@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { noop } from 'lodash';
 import { CircularPreloader } from 'views/generic/circularPreloader';
+import { LoginView } from 'views/LoginView';
 
 
 /**

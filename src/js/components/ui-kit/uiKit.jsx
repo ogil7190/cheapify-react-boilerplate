@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from 'views/generic/card';
 import { Button } from 'views/generic/button';
 import { CircularPreloader } from 'views/generic/circularPreloader';
+import { EquiSpacedView } from 'root/src/js/views/generic/equiSpacedView';
 import { InputField } from 'views/generic/inputField';
 import { Text } from 'views/generic/text';
 import { FaFacebook } from 'react-icons/fa';
@@ -59,6 +60,14 @@ class _UIKit extends React.Component {
 
                 <Card>
                     <Text label = 'Demo text' color='blue' large= {true} centerAligned = { true } />
+                </Card>
+
+                <Card>
+                    <EquiSpacedView >
+                        <Text label = 'Demo text' color='blue' large= {true} centerAligned = { true } />
+                        <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' bodyType='lined' loading={this.state.buttonLoading} size='small' />
+                        <Button onClick = { () => this.setState( { buttonLoading: !this.state.buttonLoading } )} label='Dummy Button' bodyType='lined' loading={this.state.buttonLoading} size='small' />
+                    </EquiSpacedView>
                 </Card>
             </div>
         );
