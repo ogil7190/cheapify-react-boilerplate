@@ -23,6 +23,7 @@
     }
 
     &__forgot_text{
+        line-height: 20px;
         color: $theme-tertiary-color;
         font-size: $font-size-h6;
     }
@@ -45,6 +46,7 @@
             color: $theme-tertiary-color;
             font-size: $font-size-h6;
             &__text {
+                cursor: pointer;
                 text-decoration: underline;
             }
         }
