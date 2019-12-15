@@ -1,0 +1,82 @@
+@import '~scss/app.theme.scss';
+
+.ui-login-view{
+    display: flex;
+    height: 100vh;
+    padding: 150px;
+    align-items: center;
+    background: linear-gradient( 45deg, $theme-primary-color, $theme-secondary-color);
+    
+    &__header {
+        //height: 200px;
+        &__title{
+            font-size: $font-size-super1;
+            font-weight: 500;
+            color: $theme-primary-color;
+            text-align: center;
+        }
+    }
+
+    &__icon{
+        color: $theme-tertiary-color;
+        padding: 5px;
+    }
+
+    &__forgot_text{
+        color: $theme-tertiary-color;
+        font-size: $font-size-h6;
+    }
+    &__left-widget {
+        padding: 20px;
+        height: 80%;
+        width: 100%;
+        border-right-width: 1px;
+        border-right-color: $theme-tertiary-color;
+        border-right-style: solid;
+
+        &__custom-button-padding {
+            margin-left:40px;
+            margin-right:40px;
+        }
+
+        &__text-container {
+            line-height: 20px;
+            padding: 10px;
+            color: $theme-tertiary-color;
+            font-size: $font-size-h6;
+            &__text {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__right-widget {
+        width: 100%;
+        padding: 30px;
+        &__action-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            &__button {
+                $v : &;
+            }
+            &__link {
+                text-decoration: underline;
+                &:hover {
+                    color: red;
+                    cursor: pointer;
+                }
+            }
+        }
+    }    
+    &__custom-button-margin {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    &__footer {
+        display: flex;
+        float: right;
+        margin: 10px;
+        font-size: $font-size-h6;
+    }
+}

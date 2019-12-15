@@ -1,9 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { noop } from 'lodash';
-import { CircularPreloader } from 'views/generic/circularPreloader';
-import { LoginView } from 'views/LoginView';
+import { LoginView } from 'root/src/js/views/loginView';
 
 
 /**
@@ -17,22 +13,21 @@ import { LoginView } from 'views/LoginView';
  * <LoginContainer propName='propValue'/>
  */
 
-class LoginContainer extends React.Component {
+class _LoginContainer extends React.Component {
 
     /**
      * @param {object} props - props
      */
     constructor( props ) {
-		log.debug( 'LoginContainer.constructor()' );
 
         super( props );
 
         // bind methods to this
-		this.__bind();
+        this.__bind();
 
         // component state
         this.state = {
-
+            activeView: 'LOGIN_VIEW'
         };
 	}
 
@@ -41,20 +36,28 @@ class LoginContainer extends React.Component {
      * @desc bind class methods to current instance
      */
     __bind() {
-        log.debug( 'LoginContainer.bind()' );
+        this.actionHandler = this.actionHandler.bind( this );
+    }
+
+    actionHandler( actionType ) {
+        switch( actionType ) {
+            case 'FORGOT_PASSWORD': return this.setState( { activeView: 'FORGOT_PASSWORD' } );
+            case 'LOGIN_VIEW': return this.setState( { activeView: 'LOGIN_VIEW' } );
+        }
     }
 
      /**
      * @desc Render a React view component
      */
     render() {
-        log.debug( 'LoginContainer.render()' );
 
 		return (
             <LoginView
-                { ...this.props }
-                { ...this.state }
+                rightWidget = { this.state.activeView }
+                actionHandler = {this.actionHandler}
             />
         );
     }
 }
+
+export const LoginContainer = _LoginContainer;

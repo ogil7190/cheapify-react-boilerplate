@@ -1,4 +1,5 @@
-import { UIKitWithDataFetcher, UIKit } from 'components/ui-kit';
+import { UIKitWithDataFetcher } from 'components/ui-kit';
+import { LoginContainer } from 'components/containers/loginContainer';
 
 export const RoutePaths = {
     ROOT: '/',
@@ -12,7 +13,7 @@ export const Routes = {
         path: RoutePaths.ROOT,
         exact: true,
         data: {},
-        component: UIKitWithDataFetcher
+        component: LoginContainer
     }
 };
 
@@ -21,6 +22,6 @@ export const TemporaryRoutes = {
         path: RoutePaths.UI_KIT,
         exact: true,
         data: {},
-        component: UIKit
+        component: UIKitWithDataFetcher
     }
 };

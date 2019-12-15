@@ -2,8 +2,8 @@
 
 .view-generic-input-field {
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     &--without-margin{
         margin: 0;
@@ -35,9 +35,13 @@
         padding-right: 10px;
         align-items: center;
         border-radius: 5px;
-        border-width: 2px;
+        border-width: 1px;
         border-style: solid;
-        border-color: $theme-black;
+        border-color: rgba($theme-black, 0.5);
+
+        &:focus-within{
+            border-color: rgba($theme-secondary-color, 0.5);
+        }
     }
 
     &__label {

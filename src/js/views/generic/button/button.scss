@@ -53,6 +53,10 @@ button {
         cursor:not-allowed;
     }
 
+    &--without-margin{
+        margin: 0;
+    }
+
     &__icon {
         // icon-size is 4px more than its respective font-size in each case
         &--small {
@@ -80,6 +84,12 @@ button {
         border: 2px solid $theme-secondary-color;
         background: $theme-white;
         color: $theme-secondary-color;
+        &--red {
+            border: 2px solid red;
+        }
+        &--blue {
+            border: 2px solid blue;
+        }
     }
 
     &--filled{
@@ -109,6 +119,12 @@ button {
         }
         &--large{
             font-size: 18px;
+        }
+        &--red{
+            color: red;
+        }
+        &--blue{
+            color: blue;
         }
     }
 }

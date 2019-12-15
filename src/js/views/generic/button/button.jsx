@@ -16,13 +16,16 @@ export const Button = ( props ) => {
     const buttonClasses = classnames( 'view-generic-button', props.className,
         props.bodyType && `view-generic-button--${props.bodyType}`,
         props.size && `view-generic-button--${props.size}`,
+        props.color && `view-generic-button--${props.bodyType}--${props.color}`,
         props.disabled && 'view-generic-button--disabled',
+        props.withoutMargin && 'view-generic-button--without-margin',
         'left' === props.iconPosition &&  'view-generic-button__icon--left',
         props.changeOnHover && !props.disabled && `view-generic-button__change-${props.bodyType}-on-hover`
     );
 
-    const labelClasses = classnames( 'view-generic-button__label',
-        props.size && `view-generic-button__label--${props.size}`
+    const labelClasses = classnames( 'view-generic-button__label', props.labelClass,
+        props.size && `view-generic-button__label--${props.size}`,
+        props.labelColor && `view-generic-button__label--${props.labelColor}`
     );
 
     const iconClasses = classnames( 'view-generic-button__icon',
