@@ -6,4 +6,4 @@
 > 4. Images & SASS loaders
 > 5. Component Level Segregation
 
-Thanks to *@aman97kalra* for the contribution.
+Thanks to [Aman Kalra](https://github.com/aman97kalra) for the contribution.
