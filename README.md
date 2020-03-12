@@ -1,4 +1,4 @@
-* Cheapify - A webpack based React boilerplate for easy project setup *
+** Cheapify - A webpack based React boilerplate for easy project setup **
 
 1. Includes working router
 2. Includes working mechanism for fetching and posting using axios
