@@ -32,7 +32,7 @@ export const InputField = ( props ) => {
                     id = { props.id }
                     type = { props.type }
                     disabled = { props.disabled }
-                    onChange = { props.onChange }
+                    onChange = { ( event ) => props.onChange( event.target.value ) }
                 />
                 {
                     props.renderIcon && props.renderIcon() /* render icon as you want */

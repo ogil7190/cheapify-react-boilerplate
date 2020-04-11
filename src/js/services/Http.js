@@ -25,7 +25,7 @@ const getConfig = ( method, params, host, path, headers, cancelToken ) => {
 const requestBuilder = ( { method, handlers, params, host, path, header, cancelToken } ) => {
     const config = getConfig( method, params, host, path, header, cancelToken );
     axios( config ).then( ( response ) => {
-        handlers.onSuccess && handlers.onSuccess( response );
+        handlers.onSuccess && handlers.onSuccess( response.data );
     } ).catch( ( error ) => {
         console.log( 'ERROR HTTP.js', error );
         handlers.onFailure && handlers.onFailure( error );

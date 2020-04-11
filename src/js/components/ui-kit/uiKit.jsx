@@ -10,6 +10,10 @@ import { FaAddressCard } from 'react-icons/fa';
 import { GoSearch } from 'react-icons/go';
 import { dataFetcherHoc } from 'hoc/generic/dataFetcherHoc';
 import { NetworkRoutes } from 'router/networkRoutes';
+import { REQUEST_GET } from '../../constants/generic';
+import { ContentTruncatorHoc } from 'hoc/generic/contentTruncatorHoc';
+import { demoHoc } from 'hoc/generic/demoHoc';
+
 class _UIKit extends React.Component {
     constructor( props ) {
         super( props );
@@ -23,6 +27,9 @@ class _UIKit extends React.Component {
     }
 
     render() {
+        
+        const InputFieldWithDemoHoc = demoHoc( InputField );
+
         return( this.props.loading ?
             <div className={'ui-kit ui-kit--loading'}>
                 <CircularPreloader size='large' theme='dark' amount = {50} />
@@ -53,7 +60,35 @@ class _UIKit extends React.Component {
                 </Card>
 
                 <Card>
-                    <InputField type='text' placeholder="Enter your E-mail Id" label = "Email Id" disabled = { false } icon={ GoSearch }></InputField>
+                <ContentTruncatorHoc
+                        itemCount = { 2 }
+                        showTotalCountAgainstAction= { true }
+                        showLessLabel= { 'ShowLess'}
+                >
+                        {
+                            [ 1, 2, 3, 4 ].map( ( index ) => {
+                                return (
+                                    <InputField
+                                        type='text'
+                                        placeholder="Enter your E-mail Id"
+                                        label = "Email Id"
+                                        disabled = { false }
+                                        icon={ GoSearch }
+                                        key = { index }
+                                    >
+                                    
+                                    </InputField>
+                                );
+                            } )
+                        }
+                </ContentTruncatorHoc>
+                    {/* <DemoHoc>
+                       <InputField type='number' placeholder="Enter your Phone Number" label="Phone Number"></InputField>
+                    </DemoHoc> */}
+                    <InputFieldWithDemoHoc
+                        placeholder="Example of Demo Hoc"
+                        label = "Demo Hoc"
+                    />
                     <InputField type='number' placeholder="Enter your Phone Number" label="Phone Number"></InputField>
                     <InputField type='text' placeholder="Enter your Address" label = "Address" icon={GoSearch} renderIcon = { () => <FaAddressCard size={50} color='red' /> }></InputField>
                 </Card>
@@ -75,4 +110,4 @@ class _UIKit extends React.Component {
 }
 
 export const UIKit = _UIKit;
-export const UIKitWithDataFetcher = dataFetcherHoc( UIKit, { path: NetworkRoutes.FETCH_SAMPLE } );
+export const UIKitWithDataFetcher = dataFetcherHoc( UIKit, { path: NetworkRoutes.FETCH_SAMPLE, method: REQUEST_GET } );
