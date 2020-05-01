@@ -54,7 +54,7 @@ const renderViewAllButton = ( props ) => {
                 onClick = { onClick }
                 className = { className }
             >
-                <span classname = { 'ui-content-truncator__button--show-less' }> { `${props.showAllLabel} (${props.children.length})`  }</span>
+                <span className = { 'ui-content-truncator__button--show-less' }> { `${props.showAllLabel} (${props.children.length})`  }</span>
             </button>
         );
     } else {

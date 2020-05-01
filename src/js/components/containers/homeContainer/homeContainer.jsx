@@ -7,7 +7,7 @@ import { isEmpty } from 'lodash';
 import { REQUEST_GET, SUCCESS } from '../../../constants/generic';
 import { MessageBus } from 'services/MessageBus';
 import { OPEN_OVERLAY } from 'constants/messageBusEvents';
-
+import { getGenericDataFetch } from 'services/GenericDataFetch.service';
 
 /**
  * @Auth Aman Kalra && OGIL7190
@@ -37,7 +37,8 @@ class _HomeContainer extends React.Component {
             url: '',
             price: 0,
             result: '',
-            redirect: false
+            redirect: false,
+            componentData: {}
         };
 	}
 
@@ -50,6 +51,8 @@ class _HomeContainer extends React.Component {
         this.checkPrice = this.checkPrice.bind( this );
         this.handleFieldChange = this.handleFieldChange.bind( this );
         this.viewDecider = this.viewDecider.bind( this );
+        this.onFailure = this.onFailure.bind( this );
+        this.onSuccess = this.onSuccess.bind( this );
     }
 
     actionHandler( actionType ) {
@@ -64,7 +67,7 @@ class _HomeContainer extends React.Component {
         console.log( 'prevProps', this.props.componentData );
         console.log( 'nextProps', nextProps.componentData );
 
-        if( this.props.componentData !== nextProps.componentData ) {
+        if( this.state.componentData !== nextProps.componentData ) {
             
             // MessageBus.trigger( OPEN_OVERLAY, { component: Button, componentData: {
             //     label: nextProps.componentData.message,
@@ -76,9 +79,9 @@ class _HomeContainer extends React.Component {
                 loading: false
             } } );
 
-            this.setState( {
-                redirect: true
-            } );
+            // this.setState( {
+            //     redirect: true
+            // } );
 
             //MessageBus.trigger( OPEN_OVERLAY, { component: HomeContainer, componentData: {} } );
         }
@@ -123,11 +126,38 @@ class _HomeContainer extends React.Component {
     }
 
     checkPrice( url, price = 0 ) {
-        this.setState( { result: '' } );
-        this.props.fetchData( {
-            url,
-            price
+        getGenericDataFetch( {
+            path: NetworkRoutes.FETCH_PRICE,
+            handlers: {
+                success: this.onSuccess,
+                failure: this.onFailure
+            },
+            params: {
+                url,
+                price
+            }
         } );
+    
+        // this.setState( { result: '' } );
+        // this.props.fetchData( {
+        //     url,
+        //     price
+        // } );
+    }
+
+    onSuccess( response ) {
+        console.log( 'homeContainer.onSuccess()' );
+        this.setState( { componentData: response } );
+        console.log( this.state.componentData );
+            MessageBus.trigger( OPEN_OVERLAY, { component: SuccessView, componentData: {
+                message: this.state.componentData.message,
+                loading: false
+            } } );
+    }
+
+    onFailure( response ) {
+        console.log( 'homeContainer.onFailure()' );
+        this.setState( { componentData: response } );
     }
 
      /**
@@ -163,5 +193,6 @@ const DataFetcherConfig = {
     method: REQUEST_GET
 };
 
-export const HomeContainer = dataFetcherHoc( _HomeContainer, DataFetcherConfig );
+//export const HomeContainer = dataFetcherHoc( _HomeContainer, DataFetcherConfig );
+export const HomeContainer = _HomeContainer;
 
