@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { shortID } from 'utils/common';
+import { isUndefined } from 'lodash';
 
-const getConfig = ( method, params, host, path, headers, cancelToken ) => {
+const getConfig = ( method, params, host, path, headers, cancelToken, _url ) => {
     const _host = host || 'http:localhost:9000';
     const _path = path || '/';
-    const url = _host + _path;
+    const url = isUndefined( _url ) ? _host + _path: _url;
     const _default = {
         requestId: shortID(),
         cancelToken,
@@ -19,13 +20,15 @@ const getConfig = ( method, params, host, path, headers, cancelToken ) => {
             'Accept': 'application/json',
         }
     };
+    console.log( 'url is ', url );
     return _default;
 };
 
-const requestBuilder = ( { method, handlers, params, host, path, header, cancelToken } ) => {
-    const config = getConfig( method, params, host, path, header, cancelToken );
+const requestBuilder = ( { method, handlers, params, host, path, header, cancelToken, _url } ) => {
+    const config = getConfig( method, params, host, path, header, cancelToken, _url );
+    console.log( 'requestBuilder', config );
     axios( config ).then( ( response ) => {
-        handlers.onSuccess && handlers.onSuccess( response );
+        handlers.onSuccess && handlers.onSuccess( response.data );
     } ).catch( ( error ) => {
         console.log( 'ERROR HTTP.js', error );
         handlers.onFailure && handlers.onFailure( error );

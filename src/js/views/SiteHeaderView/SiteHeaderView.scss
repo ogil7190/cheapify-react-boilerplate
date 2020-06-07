@@ -1,0 +1,34 @@
+.ui-site-header-view {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:100px;
+    padding: 20px;
+    background-color: #efefef;
+    display: flex;
+    &__left-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 3;
+        padding: 10px;
+        margin-right: 80px;
+        &__item {
+            padding: 10px;
+            font-size: 20px;
+
+        }
+    }
+    &__right-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        flex:2;
+        &__item{
+            padding: 10px;
+            font-size: 20px;
+        }
+    }
+}

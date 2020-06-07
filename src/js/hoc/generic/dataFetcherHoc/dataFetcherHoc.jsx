@@ -9,21 +9,24 @@ import { APP_HOST } from 'root/app-config.js';
     * Must be used with top level component only (if not exception)
 */
 
-export const dataFetcherHoc = ( Component, { path, params = {}, method = REQUEST_POST } ) => {
+export const dataFetcherHoc = ( Component, { path, params = {}, method = REQUEST_POST, autoInit = true } ) => {
     class DataFetcherHoc extends React.Component {
         constructor( props ) {
             super( props );
             this.state = {
-                loading: false
+                loading: false,
+                componentData: {}
             };
+            this.fetchData = this.fetchData.bind( this );
         }
 
-        fetchData() {
-            this.setState( { loading: true}, () => {
+        fetchData( _params ) {
+            console.log( 'dataFetcherHoc.fetchData()' );
+            this.setState( { loading: true }, () => {
                 const config =  {
                     host: APP_HOST,
                     path,
-                    params,
+                    params: _params || params,
                     handlers: {
                         onSuccess: this.onSuccess.bind( this ),
                         onFailure: this.onFailure.bind( this ),
@@ -39,18 +42,20 @@ export const dataFetcherHoc = ( Component, { path, params = {}, method = REQUEST
         }
 
         onSuccess( response ) {
+            console.log( 'dataFetcherHoc.onSuccess()' );
             this.setState( { componentData: response, error: false, loading: false} );
         }
 
         onFailure( response ) {
+            console.log( 'dataFetcherHoc.onFailure()' );
             this.setState( { componentData: response, error: true, loading: false } );
         }
 
         componentDidMount() {
-
+            
             /* start fetching data as soon as component mounts */
             console.log( 'dataFetcherHoc.componentDidMount()' );
-            this.fetchData();
+            autoInit && this.fetchData();
         }
 
         render() {

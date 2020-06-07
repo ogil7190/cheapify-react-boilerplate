@@ -1,19 +1,20 @@
+const mbEvents = {};
 const _MessageBus = () => {
-    const events = {};
-
     const on = ( event, callback ) => {
-        let _events = events[ event ];
+        console.log( 'MESSAGE_BUS', `on:${event}` );
+        let _events = mbEvents[ event ];
         if ( _events ) {
             _events.push( callback );
         } else {
             _events = [];
             _events.push( callback );
-            events.event = _events;
+            mbEvents[ [ event ] ] = _events;
         }
     };
 
     const off = ( event, callback ) => {
-        const _events = events[ event ];    // if event exists in the events array
+        console.log( 'MESSAGE_BUS', `off:${event}` );
+        const _events = mbEvents[ event ];    // if event exists in the events array
         if( _events ) {
             const _index = _events.findIndexOf( callback );     // if callback exists in the given event
             if( -1 !== _index ) {
@@ -24,12 +25,15 @@ const _MessageBus = () => {
 
     /*  Execute all the functions that are contained in events [event] */
     const trigger = ( event, payload ) => {
-        const _events = events[ event ];
-        const length = _events.length;
-        if( _events && 0 <  length ) {
-            _events.map( ( _event ) => {
-                _event( payload );
-            } );
+        console.log( 'MESSAGE_BUS', `trigger:${event}`, mbEvents );
+        const _events = mbEvents[ event ];
+        if( _events ) {
+            const length = _events.length;
+            if( 0 <  length ) {
+                _events.map( ( _event ) => {
+                    _event( payload );
+                } );
+            }
         }
     };
     return {
