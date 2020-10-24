@@ -2,10 +2,13 @@
 
 # **Cheapify - A webpack based React boilerplate for easy project setup**
 
-> 1. Includes working router
-> 2. Includes working mechanism for fetching and posting using axios
-> 3. Includes MessageBus
-> 4. Images & SASS loaders
-> 5. Component Level Segregation
+> 1. Includes working router using `react-router`.
+> 2. Includes working mechanism for fetching and posting using `axios`.
+> 3. Includes custom MessageBus for event based operations.
+> 4. Images & SASS loaders included.
+> 5. Component Level Segregation for each component & view.
+> 6. Highly Segregated folder structure like utils, services, hocs, views etc...
+> 7. Easy to Use & loaded with command for easy build.
+> 8. Easy to get help, simply raise an issue & get solution faster.
 
 Thanks to [Aman Kalra](https://github.com/aman97kalra) for the contribution.
