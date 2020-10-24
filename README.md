@@ -1,4 +1,4 @@
-![cheapify-react-boilerplate](https://socialify.git.ci/ogil7190/cheapify/image?description=1&descriptionEditable=A%20webpack%20based%20react%20boilerplate%20with%20component%20level%20segregation%20%26%20SASS.&font=KoHo&language=1&owner=1&pattern=Floating%20Cogs&stargazers=1&theme=Dark)
+![cheapify-react-boilerplate](https://socialify.git.ci/ogil7190/cheapify/image?description=1&descriptionEditable=A%20webpack%20based%20react%20boilerplate%20with%20component%20level%20segregation%20%26%20SASS.&font=KoHo&forks=1&issues=1&language=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark)
 
 # **Cheapify - A webpack based React boilerplate for easy project setup**
 
